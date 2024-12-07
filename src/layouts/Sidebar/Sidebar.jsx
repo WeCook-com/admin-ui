@@ -16,7 +16,7 @@ const Sidebar = () => {
             left="0"
             bottom="0"
             bg={{ base: 'white' }}
-            padding="36px 24px"
+            padding="36px 18px"
             display="flex"
             flexDir="column"
         >
