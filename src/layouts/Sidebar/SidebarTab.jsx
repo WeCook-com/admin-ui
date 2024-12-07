@@ -1,6 +1,12 @@
 import { Box, Flex, Text, Icon } from '@chakra-ui/react';
 
-const SidebarTab = ({ Icon: IconProp, iconFontSize = '24px', isActive = false, title }) => {
+const SidebarTab = ({
+    Icon: IconProp,
+    iconFontSize = '24px',
+    isActive = false,
+    title,
+    color = 'blue',
+}) => {
     return (
         <Flex
             width="100%"
@@ -10,10 +16,13 @@ const SidebarTab = ({ Icon: IconProp, iconFontSize = '24px', isActive = false, t
             borderRightRadius="12px"
             alignItems="center"
             cursor="pointer"
+            borderLeftWidth="3px"
+            borderStyle="solid"
+            borderColor="transparent"
             {...(isActive
-                ? { bg: 'blue.100', borderLeft: '3px solid #3b82f6' }
+                ? { bg: 'blue.100', borderColor: `${color}.500` }
                 : {
-                      _hover: { backgroundColor: 'blue.50', color: 'blue.500' },
+                      _hover: { backgroundColor: `${color}.50`, color: `${color}.500` },
                       transition: 'all .15s ease',
                   })}
         >

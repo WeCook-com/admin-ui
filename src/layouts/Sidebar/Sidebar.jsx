@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import { BiDish } from 'react-icons/bi';
 import { FiFileText } from 'react-icons/fi';
-import { LuCircleDollarSign, LuSettings, LuUsersRound } from 'react-icons/lu';
+import { LuCircleDollarSign, LuSettings, LuUsersRound, LuLogOut } from 'react-icons/lu';
 import { PiPackage } from 'react-icons/pi';
 import { RxDashboard } from 'react-icons/rx';
 import SidebarTab from './SidebarTab';
@@ -17,6 +17,8 @@ const Sidebar = () => {
             bottom="0"
             bg={{ base: 'white' }}
             padding="36px 24px"
+            display="flex"
+            flexDir="column"
         >
             <Box textAlign="center" fontSize="3xl" fontWeight="700">
                 WECOOK.COM
@@ -29,6 +31,9 @@ const Sidebar = () => {
                 <SidebarTab Icon={LuCircleDollarSign} title="Transactions" />
                 <SidebarTab Icon={FiFileText} title="Reports" />
                 <SidebarTab Icon={LuSettings} title="Settings" />
+            </Box>
+            <Box mt="auto">
+                <SidebarTab Icon={LuLogOut} title="Log out" color="red" />
             </Box>
         </Box>
     );
