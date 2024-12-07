@@ -33,6 +33,7 @@ const SidebarTab = ({
                     left="50%"
                     transform="translate(-50%,-50%)"
                     fontSize={iconFontSize}
+                    color={isActive ? `${color}.500` : 'inherit'}
                 >
                     <IconProp />
                 </Icon>
