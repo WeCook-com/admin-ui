@@ -1,6 +1,7 @@
 import { Provider } from '@/components/ui/provider';
 import './globals.css';
 import { Theme } from '@chakra-ui/react';
+import Sidebar from '@/layouts/Sidebar';
 
 export const metadata = {
     title: 'Create Next App',
@@ -13,7 +14,8 @@ export default function RootLayout({ children }) {
             <body>
                 <Provider>
                     <Theme appearance="light" minHeight="100vh">
-                        {children}
+                        <Sidebar />
+                        <div className="main">{children}</div>
                     </Theme>
                 </Provider>
             </body>
