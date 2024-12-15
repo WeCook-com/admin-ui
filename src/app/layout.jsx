@@ -1,7 +1,7 @@
 import { Provider } from '@/components/ui/provider';
 import Header from '@/layouts/Header';
 import Sidebar from '@/layouts/Sidebar';
-import { Theme } from '@chakra-ui/react';
+import { Box, Theme } from '@chakra-ui/react';
 import './globals.css';
 
 export const metadata = {

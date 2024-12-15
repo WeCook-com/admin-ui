@@ -9,21 +9,22 @@ import SidebarTab from './SidebarTab';
 const Sidebar = () => {
     return (
         <Box
-            width="288px"
-            borderRight="1px solid #f2f2f2"
+            width="250px"
+            boxShadow="0 1px 3px rgba(27, 23, 30, 0.1)"
             position="fixed"
             top="0"
             left="0"
             bottom="0"
             bg={{ base: 'white' }}
-            padding="36px 18px"
+            padding="36px 14px"
             display="flex"
             flexDir="column"
+            zIndex="30"
         >
             <Box textAlign="center" fontSize="3xl" fontWeight="700">
                 WECOOK.COM
             </Box>
-            <Box marginTop="7" paddingX="2">
+            <Box marginTop="7" paddingX="1">
                 <SidebarTab Icon={RxDashboard} title="Dashboard" isActive />
                 <SidebarTab Icon={PiPackage} title="My Orders" />
                 <SidebarTab Icon={BiDish} title="Menu Items" />

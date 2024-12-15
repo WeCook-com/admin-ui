@@ -12,10 +12,10 @@ const Header = () => {
             right="0"
             left="0"
             bg="white"
-            boxShadow="0 1px 3px rgba(27, 23, 30, 0.1)"
             h="64px"
             zIndex="20"
-            marginLeft="288px"
+            borderBottom="1px solid #f2f2f2"
+            marginLeft="250px"
         >
             <Flex
                 width="100%"
@@ -61,22 +61,11 @@ const Header = () => {
                     <IconButton size="md" w="40px" h="40px" borderRadius="6px">
                         <LuMoon />
                     </IconButton>
-                    <Box
-                        bg="transparent"
-                        color="#000"
-                        w="40px"
-                        h="40px"
-                        borderRadius="6px"
-                        _hover={{ bg: 'gray.100' }}
-                        fontSize="24px"
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        transition="all .2s ease"
-                        cursor="pointer"
-                    >
-                        <RiFullscreenExitLine size={23} />
-                    </Box>
+                    <IconButton size="md" w="40px" h="40px" borderRadius="6px" variant="ghost">
+                        <RiFullscreenExitLine
+                            style={{ fontSize: '23px', width: '23px', height: '23px' }}
+                        />
+                    </IconButton>
                 </Flex>
             </Flex>
         </Box>
