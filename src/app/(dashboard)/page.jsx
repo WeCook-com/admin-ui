@@ -3,6 +3,7 @@ import { LuCircleDollarSign, LuRefreshCw, LuTruck, LuUsersRound } from 'react-ic
 import { PiPackage } from 'react-icons/pi';
 import ChartBox from './components/ChartBox';
 import InfoBox from './components/InfoBox';
+import NewOrdersBox from './components/NewOrdersBox';
 
 const DashboardPage = () => {
     return (
@@ -30,6 +31,9 @@ const DashboardPage = () => {
                 <ChartBox title="Total Revenue" chartType="area" />
                 <ChartBox title="Total Orders" chartType="bar" />
             </SimpleGrid>
+            <Box mt="22px">
+                <NewOrdersBox />
+            </Box>
         </Box>
     );
 };

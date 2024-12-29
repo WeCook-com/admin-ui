@@ -64,16 +64,16 @@ const AreaChartData = ({ chartType }) => {
             {chartType === 'area' ? (
                 <AreaChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
+                    <XAxis dataKey="name" fontSize="16px" tickMargin={12} />
+                    <YAxis tickMargin={12} fontSize="16px" />
                     <Tooltip />
                     <Area type="monotone" dataKey="uv" stroke="#3b82f6" fill="#dbeafe" />
                 </AreaChart>
             ) : chartType === 'bar' ? (
                 <BarChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
+                    <XAxis dataKey="name" fontSize="16px" tickMargin={12} />
+                    <YAxis tickMargin={12} fontSize="16px" />
                     <Tooltip />
                     <Bar dataKey="pv" fill="#3b82f6" stroke="#3b82f6">
                         {data.map((entry, index) => (
