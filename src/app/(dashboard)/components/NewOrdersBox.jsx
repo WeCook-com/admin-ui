@@ -1,4 +1,4 @@
-import { Box, Table, Text } from '@chakra-ui/react';
+import { Box, Button, Table, Text } from '@chakra-ui/react';
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -46,6 +46,7 @@ const NewOrdersBox = () => {
                                 <Table.Cell textAlign="end">
                                     <Box
                                         fontSize="13px"
+                                        fontWeight="600"
                                         bg="green.500"
                                         py="1"
                                         px="2"
@@ -61,6 +62,11 @@ const NewOrdersBox = () => {
                         ))}
                     </Table.Body>
                 </Table.Root>
+            </Box>
+            <Box mt="4" display="flex" alignItems="center" justifyContent="center" w="100%">
+                <Button variant="ghost" fontWeight="700" fontSize="16px" color="blue.500">
+                    See All
+                </Button>
             </Box>
         </Box>
     );
