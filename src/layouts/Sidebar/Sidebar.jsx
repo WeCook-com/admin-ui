@@ -1,7 +1,8 @@
+import routes from '@/config/routes';
 import { Box } from '@chakra-ui/react';
 import { BiDish } from 'react-icons/bi';
 import { FiFileText } from 'react-icons/fi';
-import { LuCircleDollarSign, LuSettings, LuUsersRound, LuLogOut } from 'react-icons/lu';
+import { LuCircleDollarSign, LuLogOut, LuSettings, LuUsersRound, LuGift } from 'react-icons/lu';
 import { PiPackage } from 'react-icons/pi';
 import { RxDashboard } from 'react-icons/rx';
 import SidebarTab from './SidebarTab';
@@ -25,16 +26,21 @@ const Sidebar = () => {
                 WECOOK.COM
             </Box>
             <Box marginTop="7" paddingX="1">
-                <SidebarTab Icon={RxDashboard} title="Dashboard" isActive />
-                <SidebarTab Icon={PiPackage} title="My Orders" />
-                <SidebarTab Icon={BiDish} title="Menu Items" />
-                <SidebarTab Icon={LuUsersRound} title="My Staff" />
-                <SidebarTab Icon={LuCircleDollarSign} title="Transactions" />
-                <SidebarTab Icon={FiFileText} title="Reports" />
-                <SidebarTab Icon={LuSettings} title="Settings" />
+                <SidebarTab href={routes.dashboard} Icon={<RxDashboard />} title="Dashboard" />
+                <SidebarTab href={routes.myOrders} Icon={<PiPackage />} title="My Orders" />
+                <SidebarTab href={routes.menuItems} Icon={<BiDish />} title="Menu Items" />
+                <SidebarTab href={routes.promotions} Icon={<LuGift />} title="Promotions" />
+                <SidebarTab href={routes.myStaff} Icon={<LuUsersRound />} title="My Staff" />
+                <SidebarTab
+                    href={routes.transactions}
+                    Icon={<LuCircleDollarSign />}
+                    title="Transactions"
+                />
+                <SidebarTab href={routes.reports} Icon={<FiFileText />} title="Reports" />
+                <SidebarTab href={routes.settings} Icon={<LuSettings />} title="Settings" />
             </Box>
             <Box mt="auto">
-                <SidebarTab Icon={LuLogOut} title="Log out" color="red" />
+                <SidebarTab Icon={<LuLogOut />} title="Log out" color="red" />
             </Box>
         </Box>
     );
