@@ -9,7 +9,7 @@ const SidebarTab = ({ Icon: IconProp, iconFontSize = '24px', title, color = 'blu
     const Wrapper = href ? Link : React.Fragment;
     const pathname = usePathname();
 
-    const isActive = pathname === href;
+    const isActive = href === '/' ? href === pathname : pathname.includes(href);
 
     return (
         <Wrapper {...(href ? { href } : {})}>

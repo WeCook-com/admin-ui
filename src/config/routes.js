@@ -1,7 +1,12 @@
 const routes = {
     dashboard: '/',
-    menuItems: '/menu-items',
+
     myOrders: '/my-orders',
+
+    menuItems: '/menu-items',
+    menuCategories: '/menu-items/categories',
+    menuDishes: '/menu-items/dishes',
+
     myStaff: '/my-staff',
     promotions: '/promotions',
     reports: '/reports',

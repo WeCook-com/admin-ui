@@ -44,3 +44,23 @@ html {
     padding: 6px 10px 6px 34px;
     outline: none;
 }
+
+/* Chakra UI Tabs */
+.chakra-tabs__list[data-orientation='horizontal'] {
+    width: 100%;
+    background: white;
+}
+
+.chakra-tabs__trigger:is([aria-selected='true'], [data-selected]) {
+    background: var(--chakra-colors-blue-100);
+    border-color: var(--chakra-colors-blue-500);
+}
+
+.chakra-tabs__trigger:is([aria-selected='true'], [data-selected]) svg {
+    color: var(--chakra-colors-blue-500);
+}
+
+.chakra-tabs__trigger svg {
+    width: 18px;
+    height: 18px;
+}

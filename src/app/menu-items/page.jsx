@@ -1,7 +1,7 @@
-import React from 'react';
+import { Box } from '@chakra-ui/react';
 
 const MenuItemsPage = () => {
-    return <div>MenuItemsPage</div>;
+    return <Box>Dashboard</Box>;
 };
 
 export default MenuItemsPage;
