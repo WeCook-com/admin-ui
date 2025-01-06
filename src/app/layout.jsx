@@ -1,7 +1,8 @@
 import { Provider } from '@/components/ui/provider';
 import Header from '@/layouts/Header';
 import Sidebar from '@/layouts/Sidebar';
-import { Box, Theme } from '@chakra-ui/react';
+import { Theme } from '@chakra-ui/react';
+import 'react-datepicker/dist/react-datepicker.css';
 import './globals.css';
 
 export const metadata = {

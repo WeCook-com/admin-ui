@@ -16,7 +16,14 @@ const DashboardPage = () => {
                     <Text textStyle="sm" mr="2">
                         Activities during the day (7/12/2024 03:59 PM)
                     </Text>
-                    <IconButton size="xs" width="30px" height="30px" variant="surface">
+                    <IconButton
+                        size="xs"
+                        width="30px"
+                        height="30px"
+                        variant="surface"
+                        bg="white"
+                        _hover={{ bg: 'gray.100' }}
+                    >
                         <LuRefreshCw />
                     </IconButton>
                 </Flex>

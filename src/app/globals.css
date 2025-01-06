@@ -1,7 +1,46 @@
+body,
+html {
+    background-color: #f7f7f8;
+}
+
 .content {
     margin-left: 250px;
     margin-top: 64px;
     background-color: #f7f7f8;
     min-height: 100vh;
-    padding: 30px 28px 40px;
+    padding: 30px 28px 56px;
+}
+
+/* react-datepicker */
+.react-datepicker-wrapper * {
+    cursor: pointer;
+}
+
+.react-datepicker-wrapper {
+    width: 140px;
+    border: 1px solid #e4e4e7;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 36px;
+}
+
+.react-datepicker__input-container {
+    height: 100%;
+}
+
+.react-datepicker-wrapper input {
+    font-size: 14px;
+}
+
+.react-datepicker-wrapper svg {
+    padding: 9px 0 9px 10px !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.react-datepicker-wrapper input {
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px 6px 34px;
+    outline: none;
 }

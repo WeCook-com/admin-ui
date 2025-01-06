@@ -1,4 +1,6 @@
+import routes from '@/config/routes';
 import { Box, Button, Table, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -29,6 +31,7 @@ const NewOrdersBox = () => {
                             <Table.ColumnHeader color="#aba5a3">Customer Name</Table.ColumnHeader>
                             <Table.ColumnHeader color="#aba5a3">Date</Table.ColumnHeader>
                             <Table.ColumnHeader color="#aba5a3">Type</Table.ColumnHeader>
+                            <Table.ColumnHeader color="#aba5a3">Payment Type</Table.ColumnHeader>
                             <Table.ColumnHeader color="#aba5a3">Amount</Table.ColumnHeader>
                             <Table.ColumnHeader color="#aba5a3" textAlign="end">
                                 Status
@@ -42,6 +45,7 @@ const NewOrdersBox = () => {
                                 <Table.Cell>Khanh Hung</Table.Cell>
                                 <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
                                 <Table.Cell>In Restaurant</Table.Cell>
+                                <Table.Cell>Online</Table.Cell>
                                 <Table.Cell>10.000 đ</Table.Cell>
                                 <Table.Cell textAlign="end">
                                     <Box
@@ -64,9 +68,11 @@ const NewOrdersBox = () => {
                 </Table.Root>
             </Box>
             <Box mt="4" display="flex" alignItems="center" justifyContent="center" w="100%">
-                <Button variant="ghost" fontWeight="700" fontSize="16px" color="blue.500">
-                    See All
-                </Button>
+                <Link href={routes.myOrders}>
+                    <Button variant="ghost" fontWeight="700" fontSize="16px" color="blue.500">
+                        See All
+                    </Button>
+                </Link>
             </Box>
         </Box>
     );
