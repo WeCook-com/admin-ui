@@ -1,6 +1,6 @@
 import { InputGroup } from '@/components/ui/input-group';
-import { Box, Flex, IconButton, Input, Table, Text } from '@chakra-ui/react';
-import { LuRefreshCw, LuSearch } from 'react-icons/lu';
+import { Box, Flex, HStack, IconButton, Input, Table, Text } from '@chakra-ui/react';
+import { LuEye, LuPencil, LuRefreshCw, LuSearch, LuTrash2 } from 'react-icons/lu';
 import FilterOptions from './components/FilterOptions';
 import Pagination from './components/Pagination';
 
@@ -71,8 +71,9 @@ const MyOrdersPage = () => {
                         <Table.ColumnHeader color="#aba5a3">Type</Table.ColumnHeader>
                         <Table.ColumnHeader color="#aba5a3">Payment Type</Table.ColumnHeader>
                         <Table.ColumnHeader color="#aba5a3">Amount</Table.ColumnHeader>
+                        <Table.ColumnHeader color="#aba5a3">Status</Table.ColumnHeader>
                         <Table.ColumnHeader color="#aba5a3" textAlign="end">
-                            Status
+                            Action
                         </Table.ColumnHeader>
                     </Table.Row>
                 </Table.Header>
@@ -85,7 +86,7 @@ const MyOrdersPage = () => {
                             <Table.Cell>In Restaurant</Table.Cell>
                             <Table.Cell>Online</Table.Cell>
                             <Table.Cell>10.000 đ</Table.Cell>
-                            <Table.Cell textAlign="end">
+                            <Table.Cell>
                                 <Box
                                     fontSize="13px"
                                     fontWeight="600"
@@ -94,11 +95,23 @@ const MyOrdersPage = () => {
                                     px="2"
                                     borderRadius="6px"
                                     w="fit-content"
-                                    ml="auto"
                                     color="white"
                                 >
                                     Completed
                                 </Box>
+                            </Table.Cell>
+                            <Table.Cell textAlign="end">
+                                <HStack gap="1" justifyContent="flex-end">
+                                    <IconButton variant="ghost">
+                                        <LuEye />
+                                    </IconButton>
+                                    <IconButton variant="ghost">
+                                        <LuPencil />
+                                    </IconButton>
+                                    <IconButton variant="ghost" colorPalette="red">
+                                        <LuTrash2 />
+                                    </IconButton>
+                                </HStack>
                             </Table.Cell>
                         </Table.Row>
                     ))}
