@@ -17,7 +17,9 @@ const MenuItemsLayout = ({ children }) => {
                 <Box borderBottom="1px solid transparent" borderColor="gray.200">
                     <NavigationTabs />
                 </Box>
-                {children}
+                <Box py="7" px="5">
+                    {children}
+                </Box>
             </Box>
         </Box>
     );
