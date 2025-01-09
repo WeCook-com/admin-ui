@@ -15,6 +15,9 @@ const items = [
 const MenuItemsPage = () => {
     return (
         <>
+            <Text fontSize="22px" fontWeight="600" mb="3">
+                Dashboard
+            </Text>
             <HStack gap="4">
                 <DashboardInfoBox Icon={LuList} title="Total Categories" value="10" />
                 <DashboardInfoBox Icon={BiDish} title="Total Dishes" value="68" />

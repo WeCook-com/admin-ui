@@ -1,6 +1,5 @@
-import { Box, HStack, IconButton, Table, Text } from '@chakra-ui/react';
-import React from 'react';
-import { LuEye, LuPencil, LuTrash2 } from 'react-icons/lu';
+import { Button, Flex, HStack, IconButton, Table, Text } from '@chakra-ui/react';
+import { LuPencil, LuPlus, LuTrash2 } from 'react-icons/lu';
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -22,9 +21,14 @@ const items = [
 const CategoriesPage = () => {
     return (
         <>
-            <Text fontSize="22px" fontWeight="600" mb="3">
-                All Categories
-            </Text>
+            <Flex justifyContent="space-between">
+                <Text fontSize="22px" fontWeight="600" mb="3">
+                    All Categories
+                </Text>
+                <Button variant="subtle" colorPalette="blue">
+                    <LuPlus /> Add new Category
+                </Button>
+            </Flex>
             <Table.Root
                 size="md"
                 variant="line"
@@ -53,9 +57,6 @@ const CategoriesPage = () => {
                             <Table.Cell>12</Table.Cell>
                             <Table.Cell textAlign="end">
                                 <HStack gap="1" justifyContent="flex-end">
-                                    <IconButton variant="ghost">
-                                        <LuEye />
-                                    </IconButton>
                                     <IconButton variant="ghost">
                                         <LuPencil />
                                     </IconButton>

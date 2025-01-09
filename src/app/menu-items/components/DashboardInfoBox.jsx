@@ -5,7 +5,7 @@ const DashboardInfoBox = ({ title, value, Icon }) => {
         <Flex
             bg="white"
             borderRadius="12px"
-            px="3.5"
+            px="3"
             py="4"
             alignItems="center"
             border="1px solid transparent"
@@ -17,7 +17,7 @@ const DashboardInfoBox = ({ title, value, Icon }) => {
             </Center>
             <Box ml="2.5" flex="1">
                 <Text fontSize="16px">{title}</Text>
-                <Box fontSize="22px" fontWeight="bold" display="flex" alignItems="flex-end">
+                <Box fontSize="20px" fontWeight="bold" display="flex" alignItems="flex-end">
                     <Box>{value}</Box>
                     {/* <Box fontSize="14px" mb="1">
                             .000.000
