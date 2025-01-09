@@ -11,6 +11,15 @@ html {
     padding: 30px 28px 56px;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
 /* react-datepicker */
 .react-datepicker-wrapper * {
     cursor: pointer;
