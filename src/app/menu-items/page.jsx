@@ -1,8 +1,8 @@
 import { Box, HStack, Table, Text } from '@chakra-ui/react';
 import { BiDish } from 'react-icons/bi';
 import { LuCircleDollarSign, LuList } from 'react-icons/lu';
-import DashboardInfoBox from './components/DashboardInfoBox';
 import TrendingItem from './components/TrendingItem';
+import DashboardInfoBox from '@/components/reusable/DashboardInfoBox';
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
