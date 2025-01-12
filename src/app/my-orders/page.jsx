@@ -1,25 +1,12 @@
 import { InputGroup } from '@/components/ui/input-group';
-import { Box, Flex, HStack, IconButton, Input, Table, Text } from '@chakra-ui/react';
-import { LuEye, LuPencil, LuRefreshCw, LuSearch, LuTrash2 } from 'react-icons/lu';
+import { Box, Flex, IconButton, Input, Text } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
+import { LuRefreshCw, LuSearch } from 'react-icons/lu';
 import FilterOptions from './components/FilterOptions';
 import Pagination from './components/Pagination';
+import TableData from './components/TableData';
 
-const items = [
-    { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
-    { id: 2, name: 'Coffee Maker', category: 'Home Appliances', price: 49.99 },
-    { id: 3, name: 'Desk Chair', category: 'Furniture', price: 150.0 },
-    { id: 4, name: 'Smartphone', category: 'Electronics', price: 799.99 },
-    { id: 6, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 7, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 8, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 9, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 10, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 11, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 12, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 13, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 14, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 15, name: 'Headphones', category: 'Accessories', price: 199.99 },
-];
+const OrderViewModal = dynamic(() => import('./modals/OrderViewModal'));
 
 const MyOrdersPage = () => {
     return (
@@ -55,69 +42,9 @@ const MyOrdersPage = () => {
                 />
             </InputGroup>
             <FilterOptions />
-            <Table.Root
-                size="md"
-                variant="line"
-                mt="3"
-                borderColor="gray.200"
-                borderWidth="1px"
-                borderStyle="solid"
-            >
-                <Table.Header>
-                    <Table.Row fontSize="16px">
-                        <Table.ColumnHeader color="#aba5a3">Order ID</Table.ColumnHeader>
-                        <Table.ColumnHeader color="#aba5a3">Customer Name</Table.ColumnHeader>
-                        <Table.ColumnHeader color="#aba5a3">Date</Table.ColumnHeader>
-                        <Table.ColumnHeader color="#aba5a3">Type</Table.ColumnHeader>
-                        <Table.ColumnHeader color="#aba5a3">Payment Type</Table.ColumnHeader>
-                        <Table.ColumnHeader color="#aba5a3">Amount</Table.ColumnHeader>
-                        <Table.ColumnHeader color="#aba5a3">Status</Table.ColumnHeader>
-                        <Table.ColumnHeader color="#aba5a3" textAlign="end">
-                            Action
-                        </Table.ColumnHeader>
-                    </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                    {items.map(item => (
-                        <Table.Row key={item.id} fontSize="16px">
-                            <Table.Cell>#00001</Table.Cell>
-                            <Table.Cell>Khanh Hung</Table.Cell>
-                            <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
-                            <Table.Cell>In Restaurant</Table.Cell>
-                            <Table.Cell>Online</Table.Cell>
-                            <Table.Cell>10.000 đ</Table.Cell>
-                            <Table.Cell>
-                                <Box
-                                    fontSize="13px"
-                                    fontWeight="600"
-                                    bg="green.500"
-                                    py="1"
-                                    px="2"
-                                    borderRadius="6px"
-                                    w="fit-content"
-                                    color="white"
-                                >
-                                    Completed
-                                </Box>
-                            </Table.Cell>
-                            <Table.Cell textAlign="end">
-                                <HStack gap="1" justifyContent="flex-end">
-                                    <IconButton variant="ghost">
-                                        <LuEye />
-                                    </IconButton>
-                                    <IconButton variant="ghost">
-                                        <LuPencil />
-                                    </IconButton>
-                                    <IconButton variant="ghost" colorPalette="red">
-                                        <LuTrash2 />
-                                    </IconButton>
-                                </HStack>
-                            </Table.Cell>
-                        </Table.Row>
-                    ))}
-                </Table.Body>
-            </Table.Root>
+            <TableData />
             <Pagination />
+            <OrderViewModal />
         </Box>
     );
 };
