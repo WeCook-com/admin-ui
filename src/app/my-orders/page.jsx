@@ -7,6 +7,9 @@ import Pagination from './components/Pagination';
 import TableData from './components/TableData';
 
 const OrderViewModal = dynamic(() => import('./modals/OrderViewModal'));
+const OrderEditDetailsModal = dynamic(() => import('./modals/OrderEditDetailsModal'));
+const OrderEditStatusModal = dynamic(() => import('./modals/OrderEditStatusModal'));
+const OrderDeleteModal = dynamic(() => import('./modals/OrderDeleteModal'));
 
 const MyOrdersPage = () => {
     return (
@@ -44,7 +47,11 @@ const MyOrdersPage = () => {
             <FilterOptions />
             <TableData />
             <Pagination />
+
             <OrderViewModal />
+            <OrderEditDetailsModal />
+            <OrderEditStatusModal />
+            <OrderDeleteModal />
         </Box>
     );
 };

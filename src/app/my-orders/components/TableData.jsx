@@ -1,5 +1,5 @@
 import { Badge, Table } from '@chakra-ui/react';
-import OrderActions from './OrderActions';
+import MyOrderActions from './MyOrderActions';
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -57,7 +57,7 @@ const TableData = () => {
                             </Badge>
                         </Table.Cell>
                         <Table.Cell textAlign="end">
-                            <OrderActions />
+                            <MyOrderActions />
                         </Table.Cell>
                     </Table.Row>
                 ))}

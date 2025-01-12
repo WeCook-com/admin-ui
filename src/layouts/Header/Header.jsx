@@ -1,7 +1,8 @@
+import { ColorModeButton } from '@/components/ui/color-mode';
 import { InputGroup } from '@/components/ui/input-group';
 import { Box, Flex, Icon, IconButton, Input, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import { LuBell, LuChevronDown, LuMoon, LuSearch } from 'react-icons/lu';
+import { LuBell, LuChevronDown, LuSearch } from 'react-icons/lu';
 import { RiFullscreenExitLine } from 'react-icons/ri';
 
 const Header = () => {
@@ -58,9 +59,10 @@ const Header = () => {
                     <IconButton size="md" w="40px" h="40px" borderRadius="6px" variant="subtle">
                         <LuBell />
                     </IconButton>
-                    <IconButton size="md" w="40px" h="40px" borderRadius="6px">
+                    {/* <IconButton size="md" w="40px" h="40px" borderRadius="6px">
                         <LuMoon />
-                    </IconButton>
+                    </IconButton> */}
+                    <ColorModeButton />
                     <IconButton size="md" w="40px" h="40px" borderRadius="6px" variant="ghost">
                         <RiFullscreenExitLine
                             style={{ fontSize: '23px', width: '23px', height: '23px' }}

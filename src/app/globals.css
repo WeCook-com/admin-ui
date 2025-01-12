@@ -73,3 +73,14 @@ html {
     width: 18px;
     height: 18px;
 }
+
+/* Chakra UI Editable */
+.chakra-editable__preview {
+    padding: 0;
+    min-height: var(--chakra-sizes-6);
+}
+
+.chakra-editable__editTrigger {
+    height: var(--chakra-sizes-6);
+    cursor: pointer;
+}
