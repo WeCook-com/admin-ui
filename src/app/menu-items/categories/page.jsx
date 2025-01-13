@@ -1,5 +1,11 @@
-import { Button, Flex, HStack, IconButton, Table, Text } from '@chakra-ui/react';
-import { LuPencil, LuPlus, LuTrash2 } from 'react-icons/lu';
+import { Flex, Table, Text } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
+import AddCategoryBtn from './components/AddCategoryBtn';
+import CategoryActions from './components/CategoryActions';
+
+const CategoryDeleteModal = dynamic(() => import('./modals/CategoryDeleteModal'));
+const CategoryEditModal = dynamic(() => import('./modals/CategoryEditModal'));
+const CategoryAddModal = dynamic(() => import('./modals/CategoryAddModal'));
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -25,9 +31,7 @@ const CategoriesPage = () => {
                 <Text fontSize="22px" fontWeight="600" mb="3">
                     All Categories
                 </Text>
-                <Button variant="subtle" colorPalette="blue">
-                    <LuPlus /> Add new Category
-                </Button>
+                <AddCategoryBtn />
             </Flex>
             <Table.Root
                 size="md"
@@ -56,19 +60,16 @@ const CategoriesPage = () => {
                             <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
                             <Table.Cell>12</Table.Cell>
                             <Table.Cell textAlign="end">
-                                <HStack gap="1" justifyContent="flex-end">
-                                    <IconButton variant="ghost">
-                                        <LuPencil />
-                                    </IconButton>
-                                    <IconButton variant="ghost" colorPalette="red">
-                                        <LuTrash2 />
-                                    </IconButton>
-                                </HStack>
+                                <CategoryActions />
                             </Table.Cell>
                         </Table.Row>
                     ))}
                 </Table.Body>
             </Table.Root>
+
+            <CategoryDeleteModal />
+            <CategoryEditModal />
+            <CategoryAddModal />
         </>
     );
 };
