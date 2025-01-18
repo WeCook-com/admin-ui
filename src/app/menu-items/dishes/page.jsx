@@ -1,8 +1,15 @@
-import { Button, Flex, Grid, GridItem, Input, Text } from '@chakra-ui/react';
+import { InputGroup } from '@/components/ui/input-group';
+import { Flex, Grid, GridItem, Input, Text } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
+import { LuSearch } from 'react-icons/lu';
+import AddDishBtn from './components/AddDishBtn';
 import CategoriesList from './components/CategoriesList';
 import DishItem from './components/DishItem';
-import { LuPlus, LuSearch } from 'react-icons/lu';
-import { InputGroup } from '@/components/ui/input-group';
+
+const DishAddModal = dynamic(() => import('./modals/DishAddModal'));
+const DishViewModal = dynamic(() => import('./modals/DishViewModal'));
+const DishEditModal = dynamic(() => import('./modals/DishEditModal'));
+const DishDeleteModal = dynamic(() => import('./modals/DishDeleteModal'));
 
 const DishesPage = () => {
     return (
@@ -24,9 +31,7 @@ const DishesPage = () => {
                         size="md"
                     />
                 </InputGroup>
-                <Button variant="subtle" colorPalette="blue">
-                    <LuPlus /> Add new Item
-                </Button>
+                <AddDishBtn />
             </Flex>
             <CategoriesList />
             <Grid templateColumns="repeat(4, 1fr)" gap="6" mt="6">
@@ -61,6 +66,11 @@ const DishesPage = () => {
                     <DishItem />
                 </GridItem>
             </Grid>
+
+            <DishAddModal />
+            <DishViewModal />
+            <DishEditModal />
+            <DishDeleteModal />
         </>
     );
 };

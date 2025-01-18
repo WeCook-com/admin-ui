@@ -5,6 +5,11 @@ const useMenuItemsPage = create(set => ({
     isOpenCategoryEdit: false,
     isOpenCategoryDelete: false,
 
+    isOpenDishAdd: false,
+    isOpenDishView: false,
+    isOpenDishEdit: false,
+    isOpenDishDelete: false,
+
     setOpenCategoryAdd(bool) {
         set(state => ({
             isOpenCategoryAdd: bool,
@@ -18,6 +23,27 @@ const useMenuItemsPage = create(set => ({
     setOpenCategoryDelete(bool) {
         set(state => ({
             isOpenCategoryDelete: bool,
+        }));
+    },
+
+    setOpenDishAdd(bool) {
+        set(state => ({
+            isOpenDishAdd: bool,
+        }));
+    },
+    setOpenDishView(bool) {
+        set(state => ({
+            isOpenDishView: bool,
+        }));
+    },
+    setOpenDishEdit(bool) {
+        set(state => ({
+            isOpenDishEdit: bool,
+        }));
+    },
+    setOpenDishDelete(bool) {
+        set(state => ({
+            isOpenDishDelete: bool,
         }));
     },
 }));
