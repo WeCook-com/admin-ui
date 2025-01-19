@@ -1,7 +1,11 @@
 import DashboardInfoBox from '@/components/reusable/DashboardInfoBox';
-import { Box, HStack, IconButton, Table, Text } from '@chakra-ui/react';
-import { LuCircleDollarSign, LuEye } from 'react-icons/lu';
+import { Box, HStack, Table, Text } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
+import { LuCircleDollarSign } from 'react-icons/lu';
 import FilterOptions from './components/FilterOptions';
+import TransactionActions from './components/TransactionActions';
+
+const TransactionViewModal = dynamic(() => import('./modals/TransactionViewModal'));
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -106,17 +110,15 @@ const Transactions = () => {
                                     </Box>
                                 </Table.Cell>
                                 <Table.Cell textAlign="end">
-                                    <HStack gap="1" justifyContent="flex-end">
-                                        <IconButton variant="ghost">
-                                            <LuEye />
-                                        </IconButton>
-                                    </HStack>
+                                    <TransactionActions />
                                 </Table.Cell>
                             </Table.Row>
                         ))}
                     </Table.Body>
                 </Table.Root>
             </Box>
+
+            <TransactionViewModal />
         </>
     );
 };
