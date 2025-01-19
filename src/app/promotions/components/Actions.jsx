@@ -9,6 +9,7 @@ import {
     SelectTrigger,
     SelectValueText,
 } from '@/components/ui/select';
+import usePromotionsPage from '@/stores/usePromotionsPage';
 import { createListCollection, Button, Flex, Input } from '@chakra-ui/react';
 import { LuPlus, LuSearch } from 'react-icons/lu';
 
@@ -37,6 +38,8 @@ const categories = filterOptions.items.reduce((acc, item) => {
 }, []);
 
 const Actions = () => {
+    const setOpenPromotionAdd = usePromotionsPage(state => state.setOpenPromotionAdd);
+
     return (
         <>
             <Flex alignItems="center" justifyContent="space-between">
@@ -52,7 +55,11 @@ const Actions = () => {
                         size="md"
                     />
                 </InputGroup>
-                <Button variant="subtle" colorPalette="blue">
+                <Button
+                    variant="subtle"
+                    colorPalette="blue"
+                    onClick={() => setOpenPromotionAdd(true)}
+                >
                     <LuPlus /> Add New
                 </Button>
             </Flex>

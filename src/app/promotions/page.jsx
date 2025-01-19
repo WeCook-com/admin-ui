@@ -1,6 +1,12 @@
-import { Box, HStack, IconButton, Table, Text } from '@chakra-ui/react';
+import { Badge, Box, Table, Text } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 import Actions from './components/Actions';
-import { LuEye, LuPencil, LuTrash2 } from 'react-icons/lu';
+import PromotionActions from './components/PromotionActions';
+
+const PromotionAddModal = dynamic(() => import('./modals/PromotionAddModal'));
+const PromotionViewModal = dynamic(() => import('./modals/PromotionViewModal'));
+const PromotionEditModal = dynamic(() => import('./modals/PromotionEditModal'));
+const PromotionDeleteModal = dynamic(() => import('./modals/PromotionDeleteModal'));
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -63,37 +69,21 @@ const PromotionsPage = () => {
                                 <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
                                 <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
                                 <Table.Cell>
-                                    <Box
-                                        fontSize="13px"
-                                        fontWeight="600"
-                                        bg="green.500"
-                                        py="1"
-                                        px="2"
-                                        borderRadius="6px"
-                                        w="fit-content"
-                                        color="white"
-                                    >
-                                        Completed
-                                    </Box>
+                                    <Badge size="md">Expired</Badge>
                                 </Table.Cell>
                                 <Table.Cell textAlign="end">
-                                    <HStack gap="1" justifyContent="flex-end">
-                                        <IconButton variant="ghost">
-                                            <LuEye />
-                                        </IconButton>
-                                        <IconButton variant="ghost">
-                                            <LuPencil />
-                                        </IconButton>
-                                        <IconButton variant="ghost" colorPalette="red">
-                                            <LuTrash2 />
-                                        </IconButton>
-                                    </HStack>
+                                    <PromotionActions />
                                 </Table.Cell>
                             </Table.Row>
                         ))}
                     </Table.Body>
                 </Table.Root>
             </Box>
+
+            <PromotionAddModal />
+            <PromotionViewModal />
+            <PromotionDeleteModal />
+            <PromotionEditModal />
         </>
     );
 };

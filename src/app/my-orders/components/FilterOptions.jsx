@@ -105,7 +105,13 @@ const FilterOptions = () => {
                     </SelectContent>
                 </SelectRoot>
             </Flex>
-            <Flex pl="3.5" ml="3.5" position="relative" alignItems="center">
+            <Flex
+                pl="3.5"
+                ml="3.5"
+                position="relative"
+                alignItems="center"
+                className="my-orders-filter-options"
+            >
                 <Box
                     position="absolute"
                     left="0"
