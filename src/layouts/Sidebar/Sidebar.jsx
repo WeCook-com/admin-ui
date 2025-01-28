@@ -22,9 +22,14 @@ const Sidebar = () => {
             flexDir="column"
             zIndex="30"
         >
-            <Box textAlign="center" fontSize="3xl" fontWeight="700">
-                WECOOK.COM
-            </Box>
+            <Box
+                style={{ backgroundImage: 'url(/logo.png)' }}
+                bgPos="center"
+                bgRepeat="no-repeat"
+                bgSize="cover"
+                width={208}
+                height={50}
+            ></Box>
             <Box marginTop="7" paddingX="1">
                 <SidebarTab href={routes.dashboard} Icon={<RxDashboard />} title="Dashboard" />
                 <SidebarTab href={routes.myOrders} Icon={<PiPackage />} title="My Orders" />
