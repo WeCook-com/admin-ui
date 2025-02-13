@@ -35,7 +35,7 @@ const TransactionViewModal = () => {
                             <DataListItem
                                 label="Status"
                                 value={
-                                    <Badge variant="surface" size="md" colorPalette="green">
+                                    <Badge variant="subtle" size="md" colorPalette="green">
                                         Completed
                                     </Badge>
                                 }

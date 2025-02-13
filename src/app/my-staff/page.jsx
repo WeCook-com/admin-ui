@@ -1,4 +1,4 @@
-import { Box, HStack, IconButton, Table, Text } from '@chakra-ui/react';
+import { Badge, Box, HStack, IconButton, Table, Text } from '@chakra-ui/react';
 import React from 'react';
 import { LuEye, LuPencil, LuTrash2 } from 'react-icons/lu';
 import Actions from './components/Actions';
@@ -64,18 +64,9 @@ const MyStaffPage = () => {
                                 <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
                                 <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
                                 <Table.Cell>
-                                    <Box
-                                        fontSize="13px"
-                                        fontWeight="600"
-                                        bg="green.500"
-                                        py="1"
-                                        px="2"
-                                        borderRadius="6px"
-                                        w="fit-content"
-                                        color="white"
-                                    >
-                                        Completed
-                                    </Box>
+                                    <Badge size="md" variant="subtle" colorPalette="green">
+                                        Active
+                                    </Badge>
                                 </Table.Cell>
                                 <Table.Cell textAlign="end">
                                     <HStack gap="1" justifyContent="flex-end">

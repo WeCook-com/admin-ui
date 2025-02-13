@@ -52,7 +52,7 @@ const TableData = () => {
                         <Table.Cell>Online</Table.Cell>
                         <Table.Cell>10.000 đ</Table.Cell>
                         <Table.Cell>
-                            <Badge variant="surface" size="lg" colorPalette="green">
+                            <Badge variant="subtle" size="lg" colorPalette="green">
                                 Completed
                             </Badge>
                         </Table.Cell>

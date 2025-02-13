@@ -1,5 +1,5 @@
 import DashboardInfoBox from '@/components/reusable/DashboardInfoBox';
-import { Box, HStack, Table, Text } from '@chakra-ui/react';
+import { Badge, Box, HStack, Table, Text } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import { LuCircleDollarSign } from 'react-icons/lu';
 import FilterOptions from './components/FilterOptions';
@@ -94,20 +94,9 @@ const Transactions = () => {
                                 <Table.Cell>Paid In Restaurant</Table.Cell>
                                 <Table.Cell>10.000 đ</Table.Cell>
                                 <Table.Cell>
-                                    <Box
-                                        fontSize="13px"
-                                        fontWeight="600"
-                                        bg="green.500"
-                                        py="1"
-                                        px="2"
-                                        borderRadius="6px"
-                                        w="fit-content"
-                                        color="white"
-                                        textAlign="center"
-                                        minWidth="70px"
-                                    >
+                                    <Badge size="md" variant="subtle" colorPalette="green">
                                         Paid
-                                    </Box>
+                                    </Badge>
                                 </Table.Cell>
                                 <Table.Cell textAlign="end">
                                     <TransactionActions />

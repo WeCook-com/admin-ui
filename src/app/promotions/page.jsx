@@ -69,7 +69,9 @@ const PromotionsPage = () => {
                                 <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
                                 <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
                                 <Table.Cell>
-                                    <Badge size="md">Expired</Badge>
+                                    <Badge size="md" variant="subtle">
+                                        Expired
+                                    </Badge>
                                 </Table.Cell>
                                 <Table.Cell textAlign="end">
                                     <PromotionActions />
