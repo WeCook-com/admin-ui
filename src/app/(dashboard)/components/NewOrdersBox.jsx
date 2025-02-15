@@ -1,6 +1,10 @@
 import routes from '@/config/routes';
-import { Box, Button, Table, Text } from '@chakra-ui/react';
+import { Badge, Box, Button, FormatNumber, Skeleton, Table, Text } from '@chakra-ui/react';
 import Link from 'next/link';
+import { HStack, IconButton } from '@chakra-ui/react';
+import { LuEye, LuPencil, LuTrash2 } from 'react-icons/lu';
+import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components/ui/menu';
+import { formatDate } from '@/utils';
 
 const items = [
     { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -10,7 +14,9 @@ const items = [
     { id: 5, name: 'Headphones', category: 'Accessories', price: 199.99 },
 ];
 
-const NewOrdersBox = () => {
+const NewOrdersBox = ({ data }) => {
+    console.log(data);
+
     return (
         <Box
             bg="white"
@@ -33,34 +39,58 @@ const NewOrdersBox = () => {
                             <Table.ColumnHeader color="#aba5a3">Type</Table.ColumnHeader>
                             <Table.ColumnHeader color="#aba5a3">Payment Type</Table.ColumnHeader>
                             <Table.ColumnHeader color="#aba5a3">Amount</Table.ColumnHeader>
+                            <Table.ColumnHeader color="#aba5a3">Status</Table.ColumnHeader>
                             <Table.ColumnHeader color="#aba5a3" textAlign="end">
-                                Status
+                                Action
                             </Table.ColumnHeader>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
-                        {items.map(item => (
+                        {data.map(item => (
                             <Table.Row key={item.id} fontSize="16px">
-                                <Table.Cell>#00001</Table.Cell>
-                                <Table.Cell>Khanh Hung</Table.Cell>
-                                <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
-                                <Table.Cell>In Restaurant</Table.Cell>
-                                <Table.Cell>Online</Table.Cell>
-                                <Table.Cell>10.000 đ</Table.Cell>
-                                <Table.Cell textAlign="end">
-                                    <Box
-                                        fontSize="13px"
-                                        fontWeight="600"
-                                        bg="green.500"
-                                        py="1"
-                                        px="2"
-                                        borderRadius="6px"
-                                        w="fit-content"
-                                        ml="auto"
-                                        color="white"
+                                <Table.Cell>#{item.id}</Table.Cell>
+                                <Table.Cell>{item.customer_name}</Table.Cell>
+                                <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
+                                <Table.Cell>{item.formatted_order_type}</Table.Cell>
+                                <Table.Cell textTransform="capitalize">
+                                    {item.payment_type === 'pending' ? (
+                                        <Badge colorPalette="yellow" size="md">
+                                            Pending
+                                        </Badge>
+                                    ) : (
+                                        <span>{item.payment_type}</span>
+                                    )}
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {`${new Intl.NumberFormat('vi-VN').format(item.total_price)} đ`}
+                                </Table.Cell>
+                                <Table.Cell>
+                                    <Badge
+                                        colorPalette="green"
+                                        size="md"
+                                        textTransform="capitalize"
                                     >
-                                        Completed
-                                    </Box>
+                                        {item.status}
+                                    </Badge>
+                                </Table.Cell>
+                                <Table.Cell textAlign="end">
+                                    <HStack gap="1" justifyContent="flex-end">
+                                        <Link href={routes.myOrders}>
+                                            <IconButton variant="ghost">
+                                                <LuEye />
+                                            </IconButton>
+                                        </Link>
+                                        <Link href={routes.myOrders}>
+                                            <IconButton variant="ghost">
+                                                <LuPencil />
+                                            </IconButton>
+                                        </Link>
+                                        <Link href={routes.myOrders}>
+                                            <IconButton variant="ghost" colorPalette="red">
+                                                <LuTrash2 />
+                                            </IconButton>
+                                        </Link>
+                                    </HStack>
                                 </Table.Cell>
                             </Table.Row>
                         ))}
@@ -74,6 +104,22 @@ const NewOrdersBox = () => {
                     </Button>
                 </Link>
             </Box>
+        </Box>
+    );
+};
+
+export const SkeletonNewOrdersBox = () => {
+    return (
+        <Box
+            bg="white"
+            borderRadius="12px"
+            px="5"
+            py="6"
+            alignItems="center"
+            boxShadow="rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px"
+        >
+            <Skeleton height="30px"></Skeleton>
+            <Skeleton mt="4" height="350px"></Skeleton>
         </Box>
     );
 };

@@ -4,6 +4,7 @@ import Sidebar from '@/layouts/Sidebar';
 import { Theme } from '@chakra-ui/react';
 import 'react-datepicker/dist/react-datepicker.css';
 import './globals.css';
+import { SWRProvider } from './swr-provider';
 
 export const metadata = {
     title: 'Create Next App',
@@ -15,13 +16,15 @@ export default function RootLayout({ children }) {
         <html suppressHydrationWarning>
             <body>
                 <Provider>
-                    <Theme appearance="light" minHeight="100vh">
-                        <Sidebar />
-                        <div className="main">
-                            <Header />
-                            <div className="content">{children}</div>
-                        </div>
-                    </Theme>
+                    <SWRProvider>
+                        <Theme appearance="light" minHeight="100vh">
+                            <Sidebar />
+                            <div className="main">
+                                <Header />
+                                <div className="content">{children}</div>
+                            </div>
+                        </Theme>
+                    </SWRProvider>
                 </Provider>
             </body>
         </html>

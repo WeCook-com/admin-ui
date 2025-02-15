@@ -8,7 +8,7 @@ import {
     SelectValueText,
 } from '@/components/ui/select';
 
-import { Box, createListCollection, Flex, Text } from '@chakra-ui/react';
+import { Alert, Box, createListCollection, Flex, Skeleton, Text } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 
 const frameworks = createListCollection({
@@ -20,9 +20,12 @@ const frameworks = createListCollection({
     ],
 });
 
-const ChartData = dynamic(() => import('./ChartData'), { ssr: false });
+const ChartData = dynamic(() => import('./ChartData'), {
+    ssr: false,
+    loading: () => <Skeleton width="100%" height="400px" mt="4"></Skeleton>,
+});
 
-const ChartBox = ({ title, chartType }) => {
+const ChartBox = ({ title, chartType, data }) => {
     return (
         <Box
             px="5"
@@ -55,8 +58,30 @@ const ChartBox = ({ title, chartType }) => {
                 </SelectRoot>
             </Flex>
             <Box mt="6">
-                <ChartData chartType={chartType} />
+                {data ? (
+                    <ChartData chartType={chartType} data={data} />
+                ) : (
+                    <Alert.Root status="error">
+                        <Alert.Indicator />
+                        <Alert.Title>No data to render chart.</Alert.Title>
+                    </Alert.Root>
+                )}
             </Box>
+        </Box>
+    );
+};
+
+export const SkeletonChartBox = () => {
+    return (
+        <Box
+            px="5"
+            py="5"
+            bg="white"
+            borderRadius="12px"
+            boxShadow="rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px"
+        >
+            <Skeleton height="32px"></Skeleton>
+            <Skeleton width="100%" height="400px" mt="4"></Skeleton>
         </Box>
     );
 };
