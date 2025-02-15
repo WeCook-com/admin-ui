@@ -1,22 +1,10 @@
 import routes from '@/config/routes';
-import { Badge, Box, Button, FormatNumber, Skeleton, Table, Text } from '@chakra-ui/react';
-import Link from 'next/link';
-import { HStack, IconButton } from '@chakra-ui/react';
-import { LuEye, LuPencil, LuTrash2 } from 'react-icons/lu';
-import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components/ui/menu';
 import { formatDate } from '@/utils';
-
-const items = [
-    { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
-    { id: 2, name: 'Coffee Maker', category: 'Home Appliances', price: 49.99 },
-    { id: 3, name: 'Desk Chair', category: 'Furniture', price: 150.0 },
-    { id: 4, name: 'Smartphone', category: 'Electronics', price: 799.99 },
-    { id: 5, name: 'Headphones', category: 'Accessories', price: 199.99 },
-];
+import { Badge, Box, Button, HStack, IconButton, Skeleton, Table, Text } from '@chakra-ui/react';
+import Link from 'next/link';
+import { LuEye, LuPencil, LuTrash2 } from 'react-icons/lu';
 
 const NewOrdersBox = ({ data }) => {
-    console.log(data);
-
     return (
         <Box
             bg="white"

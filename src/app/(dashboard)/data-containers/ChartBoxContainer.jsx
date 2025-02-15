@@ -5,13 +5,13 @@ import ChartBox, { SkeletonChartBox } from '../components/ChartBox';
 import dashboardApi from '@/apis/dashboardApi';
 
 const ChartBoxContainer = () => {
-    const { error, isLoading, data } = dashboardApi.getChartData();
+    const { error, isLoading, isValidating, data } = dashboardApi.getChartData();
     const chartData = data?.data;
 
     return (
         <>
             <SimpleGrid columns={2} gap="18px" mt="22px">
-                {isLoading ? (
+                {isLoading || isValidating ? (
                     [1, 2].map(a => <SkeletonChartBox key={a} />)
                 ) : (
                     <>

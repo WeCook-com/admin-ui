@@ -5,11 +5,15 @@ import NewOrdersBox, { SkeletonNewOrdersBox } from '../components/NewOrdersBox';
 import dashboardApi from '@/apis/dashboardApi';
 
 const NewOrdersContainer = () => {
-    const { data, isLoading, error } = dashboardApi.getNewestOrders();
+    const { data, isLoading, isValidating, error } = dashboardApi.getNewestOrders();
 
     return (
         <Box mt="22px">
-            {isLoading ? <SkeletonNewOrdersBox /> : <NewOrdersBox data={data.data} />}
+            {isLoading || isValidating ? (
+                <SkeletonNewOrdersBox />
+            ) : (
+                <NewOrdersBox data={data.data} />
+            )}
             {error && (
                 <Alert.Root status="error">
                     <Alert.Indicator />

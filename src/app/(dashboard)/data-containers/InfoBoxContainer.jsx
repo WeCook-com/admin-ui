@@ -8,12 +8,12 @@ import { PiPackage } from 'react-icons/pi';
 import InfoBox, { SkeletonInfoBox } from '../components/InfoBox';
 
 const InfoBoxContainer = () => {
-    const { data, error, isLoading } = dashboardApi.getOverview();
+    const { data, error, isLoading, isValidating } = dashboardApi.getOverview();
 
     return (
         <>
             <SimpleGrid columns={4} gap="18px" mt="7">
-                {isLoading ? (
+                {isLoading || isValidating ? (
                     [1, 2, 3, 4].map(a => <SkeletonInfoBox key={a} />)
                 ) : (
                     <>

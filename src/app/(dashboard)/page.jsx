@@ -1,8 +1,8 @@
-import { Box, Flex, IconButton, Text } from '@chakra-ui/react';
-import { LuRefreshCw } from 'react-icons/lu';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import ChartBoxContainer from './data-containers/ChartBoxContainer';
 import InfoBoxContainer from './data-containers/InfoBoxContainer';
 import NewOrdersContainer from './data-containers/NewOrdersContainer';
+import RefreshBtn from './components/RefreshBtn';
 
 const DashboardPage = () => {
     return (
@@ -11,21 +11,7 @@ const DashboardPage = () => {
                 <Text fontWeight="bold" fontSize="26px">
                     Dashboard
                 </Text>
-                <Flex alignItems="center">
-                    <Text textStyle="sm" mr="2">
-                        Activities during the day (7/12/2024 03:59 PM)
-                    </Text>
-                    <IconButton
-                        size="xs"
-                        width="30px"
-                        height="30px"
-                        variant="surface"
-                        bg="white"
-                        _hover={{ bg: 'gray.100' }}
-                    >
-                        <LuRefreshCw />
-                    </IconButton>
-                </Flex>
+                <RefreshBtn />
             </Flex>
             <InfoBoxContainer />
             <ChartBoxContainer />
