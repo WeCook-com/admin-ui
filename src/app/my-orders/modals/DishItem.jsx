@@ -12,14 +12,30 @@ const DishItem = ({ item }) => {
             _dark={{ borderColor: 'gray.800' }}
         >
             <Box
-                style={{ backgroundImage: 'url(/fallback_product_img.png)' }}
+                position="relative"
                 width="130px"
-                height="80px"
+                height="90px"
                 borderRadius="6px"
-                bgSize="contain"
-                bgPos="center"
+                overflow="hidden"
                 mr="3"
-            ></Box>
+            >
+                <Box
+                    style={{ backgroundImage: 'url(/fallback_product_img.png)' }}
+                    position="absolute"
+                    bgSize="contain"
+                    bgPos="center"
+                    inset="0"
+                ></Box>
+                <Box
+                    style={{ backgroundImage: `url(${item.image_url})` }}
+                    position="absolute"
+                    bgSize="contain"
+                    bgPos="center"
+                    bgRepeat="no-repeat"
+                    inset="0"
+                    zIndex="1"
+                ></Box>
+            </Box>
             <Flex flexDir="column">
                 <Text fontSize="md" fontWeight="500">
                     {item.name}
