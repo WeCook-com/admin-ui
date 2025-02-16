@@ -1,24 +1,10 @@
 import { Badge, Table } from '@chakra-ui/react';
-import MyOrderActions from './MyOrderActions';
+import { formatDate, getOrderStatusColor } from '@/utils';
+import dynamic from 'next/dynamic';
 
-const items = [
-    { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
-    { id: 2, name: 'Coffee Maker', category: 'Home Appliances', price: 49.99 },
-    { id: 3, name: 'Desk Chair', category: 'Furniture', price: 150.0 },
-    { id: 4, name: 'Smartphone', category: 'Electronics', price: 799.99 },
-    { id: 6, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 7, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 8, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 9, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 10, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 11, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 12, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 13, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 14, name: 'Headphones', category: 'Accessories', price: 199.99 },
-    { id: 15, name: 'Headphones', category: 'Accessories', price: 199.99 },
-];
+const MyOrderActions = dynamic(() => import('./MyOrderActions'));
 
-const TableData = () => {
+const TableData = ({ data }) => {
     return (
         <Table.Root
             size="md"
@@ -43,21 +29,35 @@ const TableData = () => {
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {items.map(item => (
+                {data.map(item => (
                     <Table.Row key={item.id} fontSize="16px">
-                        <Table.Cell>#00001</Table.Cell>
-                        <Table.Cell>Khanh Hung</Table.Cell>
-                        <Table.Cell>25/02/2024 - 10:30 AM</Table.Cell>
-                        <Table.Cell>In Restaurant</Table.Cell>
-                        <Table.Cell>Online</Table.Cell>
-                        <Table.Cell>10.000 đ</Table.Cell>
+                        <Table.Cell>#{item.id}</Table.Cell>
+                        <Table.Cell>{item.customer_name}</Table.Cell>
+                        <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
+                        <Table.Cell>{item.formatted_order_type}</Table.Cell>
+                        <Table.Cell textTransform="capitalize">
+                            {item.payment_type === 'pending' ? (
+                                <Badge colorPalette="yellow" size="md">
+                                    Pending
+                                </Badge>
+                            ) : (
+                                <span>{item.payment_type}</span>
+                            )}
+                        </Table.Cell>
                         <Table.Cell>
-                            <Badge variant="subtle" size="lg" colorPalette="green">
-                                Completed
+                            {`${new Intl.NumberFormat('vi-VN').format(item.total_price)} đ`}
+                        </Table.Cell>
+                        <Table.Cell>
+                            <Badge
+                                colorPalette={getOrderStatusColor(item.status)}
+                                size="md"
+                                textTransform="capitalize"
+                            >
+                                {item.status}
                             </Badge>
                         </Table.Cell>
                         <Table.Cell textAlign="end">
-                            <MyOrderActions />
+                            <MyOrderActions orderId={item.id} />
                         </Table.Cell>
                     </Table.Row>
                 ))}

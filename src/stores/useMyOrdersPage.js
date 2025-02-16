@@ -1,29 +1,34 @@
 import { create } from 'zustand';
 
 const useMyOrdersPage = create(set => ({
+    orderId: null,
     isOpenOrderView: false,
     isOpenOrderEditDetails: false,
     isOpenOrderEditStatus: false,
     isOpenOrderDelete: false,
 
-    setOpenOrderView(bool) {
+    setOpenOrderView(bool, orderId) {
         set(state => ({
             isOpenOrderView: bool,
+            orderId,
         }));
     },
-    setOpenOrderEditDetails(bool) {
+    setOpenOrderEditDetails(bool, orderId) {
         set(state => ({
             isOpenOrderEditDetails: bool,
+            orderId,
         }));
     },
-    setOpenOrderEditStatus(bool) {
+    setOpenOrderEditStatus(bool, orderId) {
         set(state => ({
             isOpenOrderEditStatus: bool,
+            orderId,
         }));
     },
-    setOpenOrderDelete(bool) {
+    setOpenOrderDelete(bool, orderId) {
         set(state => ({
             isOpenOrderDelete: bool,
+            orderId,
         }));
     },
 }));

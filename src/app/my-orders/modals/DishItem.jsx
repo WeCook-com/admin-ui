@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 
-const DishItem = () => {
+const DishItem = ({ item }) => {
     return (
         <Flex
             mt="3"
@@ -22,18 +22,18 @@ const DishItem = () => {
             ></Box>
             <Flex flexDir="column">
                 <Text fontSize="md" fontWeight="500">
-                    Hamburger Salad
+                    {item.name}
                 </Text>
                 <Text fontSize="sm" color="gray.600" _dark={{ color: 'gray.400' }}>
-                    Quantity: 2
+                    Quantity: {item.quantity}
                 </Text>
                 <Text mt="auto" fontSize="md" fontWeight="600">
-                    Price: 120.000 đ
+                    Price: {`${new Intl.NumberFormat('vi-VN').format(item.price)} đ`}
                 </Text>
             </Flex>
             <Flex ml="auto">
                 <Text mt="auto" fontSize="md" fontWeight="600">
-                    240.000 đ
+                    {`${new Intl.NumberFormat('vi-VN').format(item.price * item.quantity)} đ`}
                 </Text>
             </Flex>
         </Flex>

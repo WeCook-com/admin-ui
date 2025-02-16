@@ -1,8 +1,10 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
-import ChartBoxContainer from './data-containers/ChartBoxContainer';
-import InfoBoxContainer from './data-containers/InfoBoxContainer';
-import NewOrdersContainer from './data-containers/NewOrdersContainer';
 import RefreshBtn from './components/RefreshBtn';
+import dynamic from 'next/dynamic';
+
+const ChartBoxContainer = dynamic(() => import('./data-containers/ChartBoxContainer'));
+const InfoBoxContainer = dynamic(() => import('./data-containers/InfoBoxContainer'));
+const NewOrdersContainer = dynamic(() => import('./data-containers/NewOrdersContainer'));
 
 const DashboardPage = () => {
     return (

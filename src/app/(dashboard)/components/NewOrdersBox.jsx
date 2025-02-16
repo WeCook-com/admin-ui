@@ -1,5 +1,5 @@
 import routes from '@/config/routes';
-import { formatDate } from '@/utils';
+import { formatDate, getOrderStatusColor } from '@/utils';
 import { Badge, Box, Button, HStack, IconButton, Skeleton, Table, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { LuEye, LuPencil, LuTrash2 } from 'react-icons/lu';
@@ -54,7 +54,7 @@ const NewOrdersBox = ({ data }) => {
                                 </Table.Cell>
                                 <Table.Cell>
                                     <Badge
-                                        colorPalette="green"
+                                        colorPalette={getOrderStatusColor(item.status)}
                                         size="md"
                                         textTransform="capitalize"
                                     >
